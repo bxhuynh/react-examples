@@ -13,3 +13,8 @@ Examples of libraries/courses. For quick code review.
 - [Doc](https://developer.mozilla.org/en-US/docs/Web/API/History_API)
 - history-pushstate-n-popstate
 - used to handle event click back n forward button of browser
+
+3. react-i18next
+
+- [Doc](https://react.i18next.com/)
+- used to localise react application
