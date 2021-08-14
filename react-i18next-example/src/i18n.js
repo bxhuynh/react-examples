@@ -12,6 +12,7 @@ i18n
     fallbackLng: "en",
     debug: true,
     defaultNS: "translation",
+    ns: ["translation", "otherNamespace"],
     whitelist: languages,
     interpolation: {
       escapeValue: false,

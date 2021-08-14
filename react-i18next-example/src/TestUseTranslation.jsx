@@ -38,8 +38,12 @@ class TestUseTranslation extends React.Component {
               this.handleClick("de");
             }}
           >
-            {t("meowlish")}
+            {t("otherNamespace:meowlish")}
           </button>
+        </div>
+
+        <div>
+          <p>{t("otherNamespace:look.test")}</p>
         </div>
       </div>
     );
