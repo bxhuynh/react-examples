@@ -1,4 +1,4 @@
-# react-libs-examples
+# react-examples
 
 Examples of libraries/courses. For quick code review.
 
@@ -23,3 +23,8 @@ Examples of libraries/courses. For quick code review.
 
 - [Doc](https://redux-toolkit.js.org/introduction/getting-started)
 - state management tool
+
+5. react hooks
+
+- [Doc](https://reactjs.org/docs/hooks-intro.html)
+- react hooks let us use state and other React features without writing a class.
