@@ -18,3 +18,8 @@ Examples of libraries/courses. For quick code review.
 
 - [Doc](https://react.i18next.com/)
 - used to localise react application
+
+4. redux / redux toolkit (thunk)
+
+- [Doc](https://redux-toolkit.js.org/introduction/getting-started)
+- state management tool
