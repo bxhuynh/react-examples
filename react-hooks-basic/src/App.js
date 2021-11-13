@@ -3,17 +3,9 @@ import "./App.scss";
 import Pagination from "./components/Pagination";
 import PostList from "./components/PostList";
 import queryString from "query-string";
-// import TodoForm from "./components/TodoForm";
-// import TodoList from "./components/TodoList";
+import PostFiltersForm from "./components/PostFiltersForm";
 
 function App() {
-  // const [todoList, setTodoList] = useState([
-  //   { id: 1, title: "Eat" },
-  //   { id: 2, title: "Code" },
-  //   { id: 3, title: "Sleep" },
-  //   { id: 4, title: "Game" },
-  // ]);
-
   const [postList, setPostList] = useState([]);
   const [pagination, setPagination] = useState({
     _page: 1,
@@ -23,6 +15,7 @@ function App() {
   const [filters, setFilters] = useState({
     _limit: 10,
     _page: 1,
+    title_like: "",
   });
 
   useEffect(() => {
@@ -51,25 +44,20 @@ function App() {
     });
   }
 
-  // function handleTodoClick(todo) {
-  //   let indexOfItem = todoList.findIndex((item) => item.id === todo.id);
-  //   if (indexOfItem < 0) return;
-  //   let newList = [...todoList];
-  //   newList.splice(indexOfItem, 1);
-  //   setTodoList(newList);
-  // }
-
-  // function handleTodoFormSubmit(todo) {
-  //   setTodoList([...todoList, { ...todo, id: todoList.length }]);
-  // }
+  function handleFiltersChange(newFilters) {
+    setFilters({
+      ...filters,
+      _page: 1,
+      title_like: newFilters.searchTerm,
+    });
+  }
 
   return (
     <div className="app">
       <h1> React hooks - PostList </h1>
+      <PostFiltersForm onSubmit={handleFiltersChange} />
       <PostList posts={postList} />
       <Pagination pagination={pagination} onPageChange={handlePageChange} />
-      {/* <TodoForm onSubmit={handleTodoFormSubmit} />
-      <TodoList todos={todoList} onTodoClick={handleTodoClick} /> */}
     </div>
   );
 }
