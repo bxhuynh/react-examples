@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./App.scss";
+import Pagination from "./components/Pagination";
 import PostList from "./components/PostList";
+import queryString from "query-string";
 // import TodoForm from "./components/TodoForm";
 // import TodoList from "./components/TodoList";
 
@@ -13,24 +15,41 @@ function App() {
   // ]);
 
   const [postList, setPostList] = useState([]);
+  const [pagination, setPagination] = useState({
+    _page: 1,
+    _limit: 10,
+    _totalRows: 1,
+  });
+  const [filters, setFilters] = useState({
+    _limit: 10,
+    _page: 1,
+  });
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const requestUrl =
-          "http://js-post-api.herokuapp.com/api/posts?_limit=10&_page=1";
+        const paramsString = queryString.stringify(filters);
+        const requestUrl = `http://js-post-api.herokuapp.com/api/posts?${paramsString}`;
         const response = await fetch(requestUrl);
         const responseJSON = await response.json();
 
-        const { data } = responseJSON;
+        const { data, pagination } = responseJSON;
         setPostList(data);
+        setPagination(pagination);
       } catch (error) {
         console.log("Failed to fetch post list: ", error.message);
       }
     }
 
     fetchData();
-  }, []);
+  }, [filters]);
+
+  function handlePageChange(newPage) {
+    setFilters({
+      ...filters,
+      _page: newPage,
+    });
+  }
 
   // function handleTodoClick(todo) {
   //   let indexOfItem = todoList.findIndex((item) => item.id === todo.id);
@@ -48,6 +67,7 @@ function App() {
     <div className="app">
       <h1> React hooks - PostList </h1>
       <PostList posts={postList} />
+      <Pagination pagination={pagination} onPageChange={handlePageChange} />
       {/* <TodoForm onSubmit={handleTodoFormSubmit} />
       <TodoList todos={todoList} onTodoClick={handleTodoClick} /> */}
     </div>
