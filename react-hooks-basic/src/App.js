@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import "./App.scss";
 import Hero from "./components/Hero";
 
@@ -6,7 +6,9 @@ function App() {
   const [count, setCount] = useState(0);
 
   //useCallback vs useMemo
-  function handleHeroClick() {}
+
+  const handleHeroClick = useCallback(() => {}, []);
+  const data = useMemo(() => [{ a: 1 }], []);
 
   return (
     <div className="app">
@@ -19,7 +21,7 @@ function App() {
       >
         Increase
       </button>
-      <Hero name="hehe" onClick={handleHeroClick} />
+      <Hero name="hehe" data={data} onClick={handleHeroClick} />
     </div>
   );
 }
