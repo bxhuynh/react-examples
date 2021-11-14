@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
-import Clock from "./components/Clock";
-import BetterClock from "./components/BetterClock";
+import Clock from "../components/Clock";
+import BetterClock from "../components/BetterClock";
 
 function App() {
   const [showClock, setShowClock] = useState(true);
