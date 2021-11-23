@@ -1,0 +1,9 @@
+ul.hobby-list>li {
+    transition: all .35s ease-in-out;
+    cursor: pointer;
+    padding: 8px
+}
+
+ul.hobby-list>li.active {
+    color: royalblue
+}
