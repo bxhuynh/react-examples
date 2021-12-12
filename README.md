@@ -28,3 +28,9 @@ Examples of libraries/courses. For quick code review.
 
 - [Doc](https://reactjs.org/docs/hooks-intro.html)
 - react hooks let us use state and other React features without writing a class.
+
+6. react-testing: Jest & React-testing-library
+
+- [Doc](https://jestjs.io/docs/getting-started)
+- [Doc](https://testing-library.com/docs/react-testing-library/intro/)
+- used for testing react application
