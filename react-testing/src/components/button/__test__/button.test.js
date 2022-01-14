@@ -17,7 +17,7 @@ it('renders button correctly', () => {
   expect(getByTestId('button')).toHaveTextContent('Click me');
 });
 
-it('renders button correctly', () => {
+it('renders button correctly 2', () => {
   const { getByTestId } = render(<Button label='save' />);
   expect(getByTestId('button')).toHaveTextContent('save');
 });
